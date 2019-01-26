@@ -6,7 +6,6 @@ public class PlayerScript : MonoBehaviour
 {
 
     private Rigidbody2D rigid;
-    private bool grounded = false;
     private SpriteRenderer playerSprite;
 
     [SerializeField]
@@ -43,4 +42,6 @@ public class PlayerScript : MonoBehaviour
             rigid.MovePosition(new Vector2(transform.position.x, transform.position.y - velocity * Time.deltaTime));
         }
     }
+
+
 }
