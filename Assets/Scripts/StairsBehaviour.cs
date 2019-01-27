@@ -10,7 +10,7 @@ public class StairsBehaviour : MonoBehaviour
 
     private void Awake()
     {
-        if (LevelManager.instance == null)
+        if (LevelManager1.instance == null)
             Instantiate(levelManager);
 
     }
@@ -20,14 +20,14 @@ public class StairsBehaviour : MonoBehaviour
         savePlayerPosition();
         if (gameObject.name == "StairsDown")
         {
-            --LevelManager.instance.currentLevel;
+            --LevelManager1.instance.currentLevel;
 
-            SceneManager.LoadScene("Level" + LevelManager.instance.currentLevel);
+            SceneManager.LoadScene("Level" + LevelManager1.instance.currentLevel);
         }
         else if (gameObject.name == "StairsUp")
         {
-            ++LevelManager.instance.currentLevel;
-            SceneManager.LoadScene("Level" + LevelManager.instance.currentLevel);
+            ++LevelManager1.instance.currentLevel;
+            SceneManager.LoadScene("Level" + LevelManager1.instance.currentLevel);
         }
     }
 

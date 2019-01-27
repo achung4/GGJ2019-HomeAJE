@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8371430807477841604}
   - component: {fileID: 8371430807477841602}
   - component: {fileID: 8371430807477841603}
-  - component: {fileID: 8371430807477841600}
+  - component: {fileID: 2379362319352985401}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -47,7 +47,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.010575056, y: -0.01864779}
+  m_Offset: {x: 0.010575056, y: -0.38182485}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -58,7 +58,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.1762507, y: 1.1641958}
+  m_Size: {x: 0.6705048, y: 0.43784165}
   m_EdgeRadius: 0
 --- !u!212 &8371430807477841602
 SpriteRenderer:
@@ -96,7 +96,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: bcf4b56957ea3584d8eda4043753a5e8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -129,7 +129,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &8371430807477841600
+--- !u!114 &2379362319352985401
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,10 +138,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8371430807477841607}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f2bc21a6ef9f442c988ec120c841e03, type: 3}
+  m_Script: {fileID: 11500000, guid: 95fd66e533efc564e9ede5020864dcb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: 10
+  velocity: 5
   groundLayer:
     serializedVersion: 2
     m_Bits: 0

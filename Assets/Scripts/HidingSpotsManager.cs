@@ -13,8 +13,6 @@ public class HidingSpotsManager : MonoBehaviour
         foreach (Transform child in transform)
         {
             //child is your child transform
-            Debug.Log("furniture name :  " + child.name);
-            Debug.Log("furniture position :  " + child.position);
             hidingSpotsList.Add( child );
 
         }

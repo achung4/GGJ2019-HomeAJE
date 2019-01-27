@@ -11,11 +11,16 @@ public class Prop : MonoBehaviour
 
 	private SpriteRenderer spriteRenderer;
 	private HUDMaster hud;
+	private Collider2D col;
 
 	private void Awake() {
 		hasChanged = false;
 		if (altState == null) {
 			Debug.LogError(gameObject.name + " has no alternated state sprite");
+		}
+
+		if (doRemoveCollider) {
+			col = GetComponent<Collider2D>();
 		}
 
 		spriteRenderer = GetComponent<SpriteRenderer>();
@@ -38,6 +43,10 @@ public class Prop : MonoBehaviour
 			hasChanged = true;
 			
 			spriteRenderer.sprite = altState;
+
+			if (doRemoveCollider) {
+				col.enabled = false;
+			}
 		}
 		else if (isLocked) {
 			if (textDisplay.Length > 1) {
