@@ -31,8 +31,7 @@ public class Prop : MonoBehaviour
 	public void Alternate() {
 		if (!hasChanged && !isLocked) {
 			hasChanged = true;
-
-			print("sprite change");
+			
 			spriteRenderer.sprite = altState;
 		}
 		else if (isLocked) {
