@@ -12,6 +12,7 @@ public class StairsBehaviour : MonoBehaviour
     {
         if (LevelManager.instance == null)
             Instantiate(levelManager);
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
