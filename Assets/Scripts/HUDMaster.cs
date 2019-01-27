@@ -5,15 +5,14 @@ public class HUDMaster : MonoBehaviour
 {
 
 	public Text mainText;
+	public static string message;
 
     void Start()
     {
-		mainText.text = "Hello World!";
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	// Update is called once per frame
+	void Update() {
+		mainText.text = message;
+	}
 }

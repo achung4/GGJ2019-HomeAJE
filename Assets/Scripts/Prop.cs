@@ -4,11 +4,13 @@ public class Prop : MonoBehaviour
 {
 	[HideInInspector] public bool hasChanged;
 	[HideInInspector] public bool isLocked = false;
+	public bool doRemoveCollider = false;
 	public Sprite altState;
 
 	public string[] textDisplay;
 
 	private SpriteRenderer spriteRenderer;
+	private HUDMaster hud;
 
 	private void Awake() {
 		hasChanged = false;
@@ -36,9 +38,8 @@ public class Prop : MonoBehaviour
 		else if (isLocked) {
 			if (textDisplay.Length > 1) {
 
-				// HUD.message = textDisplay[1] // add a HUD class and a canvas to display text
-				print("is locked");
-
+				HUDMaster.message = textDisplay[1]; // add a HUD class and a canvas to display text
+				print(textDisplay[1]);
 			}
 		}
 	}
