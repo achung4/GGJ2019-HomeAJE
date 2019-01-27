@@ -35,13 +35,4 @@ public class LevelManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void goUp()
-    {
-        currentLevel++;
-    }
-
-    public void goDown()
-    {
-        currentLevel--;
-    }
 }
