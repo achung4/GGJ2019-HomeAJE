@@ -3,7 +3,7 @@
 public class Prop : MonoBehaviour
 {
 	[HideInInspector] public bool hasChanged;
-	public bool isLocked = false;
+	[HideInInspector] public bool isLocked = false;
 	public Sprite altState;
 
 	public string[] textDisplay;
@@ -27,12 +27,19 @@ public class Prop : MonoBehaviour
 	}
 
 	public void Alternate() {
-		Debug.Log(gameObject.name + ", " + hasChanged + isLocked);
 		if (!hasChanged && !isLocked) {
 			hasChanged = true;
 
 			print("sprite change");
 			spriteRenderer.sprite = altState;
+		}
+		else if (isLocked) {
+			if (textDisplay.Length > 1) {
+
+				// HUD.message = textDisplay[1] // add a HUD class and a canvas to display text
+				print("is locked");
+
+			}
 		}
 	}
 }

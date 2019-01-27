@@ -15,7 +15,7 @@ public class LockedDoor : MonoBehaviour
 	}
 
 	private void Update() {
-		// unlock = LevelManager.childFound == 2
+		// unlock = LevelManager.childFound == 2 // add this in L.M.
 		if (unlock && !isDone) {
 			prop.isLocked = false;
 			prop.UpdateSprite(unlockedState);
