@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -21,7 +22,6 @@ public class PlayerScript : MonoBehaviour
         playerSprite = GetComponent<SpriteRenderer>(); 
     }
 
-    // Update is called once per frame
     void Update()
     {
         Movement();
@@ -43,5 +43,43 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        float x= PlayerPrefs.GetFloat("p_x");
+
+        if( scene.name == "Level0" )
+        {
+            transform.position = new Vector3( (float)-6.5, (float)-1.3, 0 );
+
+        } else if(scene.name == "Level1" )
+        {
+            if ( x < 0 )
+            {
+                transform.position = new Vector3((float)-7.3, (float)-1.3, 0);
+            } else if ( x == 0)
+            {
+                transform.position = new Vector3((float)-7.3, 0, 0);
+            } else if ( x > 0)
+            {
+                transform.position = new Vector3((float)7.3, (float)-1.3, 0);
+            }
+
+        } else if(scene.name == "Level2")
+        {
+            transform.position = new Vector3((float)6.5, (float)-1.3, 0);
+        }
+
+        PlayerPrefs.DeleteAll();
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
 
 }
