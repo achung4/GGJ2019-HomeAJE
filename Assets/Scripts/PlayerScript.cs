@@ -15,17 +15,38 @@ public class PlayerScript : MonoBehaviour
 
     [SerializeField]
     private LayerMask groundLayer;
-	
+
+	private Animator anim;
+
+	// odd (+1): idel, even: animation, 0: up, 2: left, 4: right, 6: bottom.
+	int animatorState;
+	bool isWalking;
+	int lastAnimatorState = -6;
+	string[] animationNames = { "dad_up", "dad_idel_up",
+		"dad_left", "dad_idel_left",
+		"dad_right", "dad_idel_right",
+		"dad_bottom", "dad_idel_bottom" };
+	bool isPlayingAnim = false;
+	Vector2 lastVel;
+
 	void Start()
     {
 		// transform.position = LevelManager.characterInitPosition;
 
 
 		rigid = GetComponent<Rigidbody2D>();
-        playerSprite = GetComponent<SpriteRenderer>(); 
-    }
-	
-    void Update()
+        playerSprite = GetComponent<SpriteRenderer>();
+
+		anim = GetComponent<Animator>();
+
+	}
+
+	private void OnMouseDown() {
+
+		anim.Play(animationNames[1]);
+	}
+
+	void Update()
     {
         Examine();
     }
@@ -41,6 +62,20 @@ public class PlayerScript : MonoBehaviour
 
 		Vector2 velocity2 = new Vector2(inputX, inputY);
 		velocity2 = velocity2.normalized;
+
+		if (velocity2 != Vector2.zero) {
+			isWalking = true;
+			lastVel = velocity2;
+		}
+		else {
+			isWalking = false;
+		}
+		anim.SetBool("isWalking", isWalking);
+		anim.SetFloat("last_velX", lastVel.x);
+		anim.SetFloat("last_velY", lastVel.y);
+		anim.SetFloat("velX", velocity2.x);
+		anim.SetFloat("velY", velocity2.y);
+
 
 
 		Vector2 destLocation = new Vector2(transform.position.x, transform.position.y) + 
@@ -63,7 +98,7 @@ public class PlayerScript : MonoBehaviour
 		*/
 	}
 
-    void Examine()
+	void Examine()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
