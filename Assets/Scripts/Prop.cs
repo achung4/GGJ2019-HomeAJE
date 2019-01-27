@@ -28,7 +28,12 @@ public class Prop : MonoBehaviour
 		Alternate();
 	}
 
-	public void Alternate() {
+    public void onExamine()
+    {
+        Alternate();
+    }
+
+    public void Alternate() {
 		if (!hasChanged && !isLocked) {
 			hasChanged = true;
 			

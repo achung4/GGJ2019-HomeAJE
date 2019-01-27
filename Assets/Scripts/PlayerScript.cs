@@ -26,6 +26,7 @@ public class PlayerScript : MonoBehaviour
     void Update()
     {
         Movement();
+        Examine();
     }
 
     void Movement()
@@ -42,6 +43,28 @@ public class PlayerScript : MonoBehaviour
         if ( Input.GetKey( KeyCode.S ) ) {
             rigid.MovePosition(new Vector2(transform.position.x, transform.position.y - velocity * Time.deltaTime));
         }
+    }
+
+    void Examine()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+
+            foreach( Transform child in HidingSpotsManager.hidingSpotsList)
+            {
+                Debug.Log( "furniture name : " + child.name);
+                if ( distance(transform.position, child.position) < 1.6)
+                {
+                    Debug.Log("?name? : " + child.name);
+                    child.GetComponent<Prop>().onExamine();
+                }
+            }
+        }
+    }
+
+    private float distance( Vector3 v1, Vector3 v2 )
+    {
+        return Mathf.Sqrt(Mathf.Pow((v1.x - v2.x), 2) + Mathf.Pow((v1.y - v2.y), 2));
     }
 
     void OnEnable()

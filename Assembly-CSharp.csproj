@@ -60,11 +60,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\HidingSpotsManager.cs" />
     <Compile Include="Assets\Scripts\HUDMaster.cs" />
     <Compile Include="Assets\Scripts\LevelManager.cs" />
     <Compile Include="Assets\Scripts\LockedDoor.cs" />
     <Compile Include="Assets\Scripts\PlayerScript.cs" />
     <Compile Include="Assets\Scripts\Prop.cs" />
+    <Compile Include="Assets\Scripts\Sister.cs" />
+    <Compile Include="Assets\Scripts\SistersManager.cs" />
     <Compile Include="Assets\Scripts\StairsBehaviour.cs" />
     <Compile Include="Assets\TooCubeForest\demoScenes\Movement.cs" />
     <None Include="Assets\TextMesh Pro\connection_ii\SIL Open Font License.txt" />
