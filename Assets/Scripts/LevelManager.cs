@@ -3,12 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class LevelManager : MonoBehaviour
 {
-    private int currentLevel;
-    void Start()
+    public static LevelManager instance = null;
+    public int currentLevel;
+    //private static bool started = false;
+    private void Start()
     {
         currentLevel = 1;
+    }
+
+    void Awake()
+    {
+        if (instance == null)
+            instance = this;
+            
+        else if (instance != this)
+            Destroy(gameObject);
+
+        DontDestroyOnLoad(gameObject);
     }
 
     public void LoadLevel( string name )
@@ -21,16 +35,13 @@ public class LevelManager : MonoBehaviour
         Application.Quit();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void goUp()
     {
-        if( gameObject.name == "StairsDown" )
-        {
-            --currentLevel;
-            SceneManager.LoadScene("Level" + currentLevel);
-        } else if ( gameObject.name == "StairsUp" )
-        {
-            ++currentLevel;
-            SceneManager.LoadScene("Level" + currentLevel);
-        }
+        currentLevel++;
+    }
+
+    public void goDown()
+    {
+        currentLevel--;
     }
 }
