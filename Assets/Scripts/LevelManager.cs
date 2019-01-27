@@ -8,6 +8,7 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager instance = null;
     public int currentLevel;
+    //private static bool started = false;
     private void Start()
     {
         currentLevel = 1;
@@ -33,4 +34,5 @@ public class LevelManager : MonoBehaviour
     {
         Application.Quit();
     }
+
 }
