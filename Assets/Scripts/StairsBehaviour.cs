@@ -34,7 +34,6 @@ public class StairsBehaviour : MonoBehaviour
     private void savePlayerPosition()
     {
         GameObject player = GameObject.Find("Player");
-
         PlayerPrefs.SetFloat("p_x", player.transform.position.x);
         PlayerPrefs.Save();
     }
