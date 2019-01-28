@@ -30,9 +30,15 @@ public class Child : MonoBehaviour
             if(SistersManager.sistersFound >= 3)
             {
                 Debug.Log("ALL SISTERS FOUNDS");
-            }
-    
+				StartCoroutine(LoadCreditScreen());
+			}
 
-        }
+			
+
+			IEnumerator LoadCreditScreen() {
+				yield return new WaitForSecondsRealtime(6);
+				Application.LoadLevel("GameOver");
+			}
+		}
 	}
 }
