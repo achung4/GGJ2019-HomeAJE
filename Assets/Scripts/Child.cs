@@ -22,6 +22,17 @@ public class Child : MonoBehaviour
 			HUDMaster.message = "you found " + childName + "!";
 
 			hasCompleted = true;
-		}
+
+            SistersManager.sistersFound++;
+
+
+
+            if(SistersManager.sistersFound >= 3)
+            {
+                Debug.Log("ALL SISTERS FOUNDS");
+            }
+    
+
+        }
 	}
 }
